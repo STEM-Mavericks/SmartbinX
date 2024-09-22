@@ -171,6 +171,18 @@ nav ul li a:hover {
     margin-bottom: 0.5rem;
 }
 
+.project a {
+    color: black; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.project a:visited {
+    color: black; /* Visited link color */
+}
+
+.project a:hover {
+    color: orange;
+}
 /* Contact Section */
 .contact {
     background-color: #004aad;
