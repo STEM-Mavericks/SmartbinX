@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.hero {
+    background-color: #6200ea;
+    color: #fff;
+    padding: 4rem;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+}
+
+.hero p {
+    margin: 1rem 0;
+}
+
+.hero .btn {
+    background-color: #fff;
+    color: #6200ea;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.about .team {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.team-member {
+    width: 30%;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.team-member img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.projects .project {
+    background-color: #fff;
+    margin: 2rem 0;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.contact {
+    background-color: #f9f9f9;
+    padding: 2rem 0;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
