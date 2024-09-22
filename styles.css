@@ -58,19 +58,25 @@ nav ul li a:hover {
 }
 
 .hero .btn {
-    background-color: #ffbf00;
-    color: #fff;
-    padding: 0.8rem 2rem;
-    border: none;
-    text-transform: uppercase;
-    font-size: 1rem;
-    cursor: pointer;
-    text-decoration: none;
+    background-color: #ffbf00; /* Background color */
+    color: #fff; /* Text color */
+    padding: 0.8rem 2rem; /* Padding */
+    border: none; /* Remove default border */
+    border-radius: 25px; /* Rounded corners */
+    text-transform: uppercase; /* Uppercase text */
+    font-size: 1rem; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-decoration: none; /* Remove underline */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transition */
 }
 
 .hero .btn:hover {
-    background-color: #ff9300;
+    background-color: #ff9300; /* Change background color on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
 }
+
 
 /* About Section */
 .about {
