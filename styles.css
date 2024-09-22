@@ -160,6 +160,10 @@ nav ul li a:hover {
     font-size: 2rem;
 }
 
+.projects h4 i{
+    color: orange;
+}
+
 .project {
     background-color: #fff;
     padding: 1.5rem;
