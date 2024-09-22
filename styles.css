@@ -182,10 +182,12 @@ nav ul li a:hover {
 
 .project a:hover {
     color: orange;
+    font-weight: bold;
 }
 
 span{
-    color: cyan;
+    color: #ff9300; /* Example accent color */
+    font-weight: bold; /* To make it stand out */
 }
 /* Contact Section */
 .contact {
