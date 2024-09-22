@@ -397,6 +397,5 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 
-LICENSE
 # Autocommit.sh
 autocommit.sh
