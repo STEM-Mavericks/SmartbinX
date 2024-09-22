@@ -183,6 +183,10 @@ nav ul li a:hover {
 .project a:hover {
     color: orange;
 }
+
+span{
+    color: cyan;
+}
 /* Contact Section */
 .contact {
     background-color: #004aad;
