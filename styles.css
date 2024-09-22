@@ -107,6 +107,15 @@ nav ul li a:hover {
     flex: 1;
 }
 
+.team-member a {
+    color: black; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.team-member a:hover {
+    color: black; /* Change color on hover, adjust as needed */
+}
+
 .team-member img {
     border-radius: 50%;
     width: 120px;
