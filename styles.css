@@ -1,23 +1,26 @@
-* {
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: #f0f0f5;
+    color: #333;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-}
-
+/* Header and Navigation */
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: #004aad;
     padding: 1rem;
     text-align: center;
 }
 
+header h1 {
+    color: #fff;
+    font-size: 2rem;
+}
+
 nav ul {
-    list-style-type: none;
+    list-style: none;
     padding: 0;
 }
 
@@ -29,68 +32,155 @@ nav ul li {
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    cursor: pointer;
+    font-size: 1.2rem;
 }
 
+nav ul li a:hover {
+    color: #ffbf00;
+}
+
+/* Hero Section */
 .hero {
-    background-color: #6200ea;
+    background-color: #004aad;
     color: #fff;
-    padding: 4rem;
+    padding: 3rem 0;
     text-align: center;
 }
 
 .hero h2 {
     font-size: 2.5rem;
+    margin-bottom: 1rem;
 }
 
 .hero p {
-    margin: 1rem 0;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
 }
 
 .hero .btn {
-    background-color: #fff;
-    color: #6200ea;
-    padding: 1rem 2rem;
+    background-color: #ffbf00;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border: none;
+    text-transform: uppercase;
+    font-size: 1rem;
+    cursor: pointer;
     text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
 }
 
-section {
-    padding: 4rem 2rem;
+.hero .btn:hover {
+    background-color: #ff9300;
+}
+
+/* About Section */
+.about {
+    background-color: #fff;
+    padding: 2rem;
     text-align: center;
 }
 
-.about .team {
+.about h2 {
+    font-size: 2.2rem;
+    color: #004aad;
+}
+
+.about p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.team {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 2rem;
     margin-top: 2rem;
 }
 
 .team-member {
-    width: 30%;
-    background-color: #fff;
+    background-color: #f9f9f9;
     padding: 1rem;
-    border-radius: 5px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .team-member img {
-    width: 100%;
-    border-radius: 5px;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
 }
 
-.projects .project {
+.team-member h3 {
+    margin: 1rem 0 0.5rem;
+    color: #333;
+}
+
+.team-member p {
+    color: #666;
+}
+
+/* Projects Section */
+.projects {
+    background-color: #f0f0f5;
+    padding: 2rem;
+    text-align: center;
+}
+
+.projects h2 {
+    color: #004aad;
+    font-size: 2rem;
+}
+
+.project {
     background-color: #fff;
-    margin: 2rem 0;
-    padding: 1rem;
-    border-radius: 5px;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.project h3 {
+    color: #ff9300;
+}
+
+.project ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.project ul li {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+/* Contact Section */
 .contact {
-    background-color: #f9f9f9;
-    padding: 2rem 0;
+    background-color: #004aad;
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
 }
 
+.contact h2 {
+    font-size: 2rem;
+}
+
+.contact p {
+    font-size: 1.2rem;
+}
+
+.contact a {
+    color: #ffbf00;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    color: #ff9300;
+}
+
+/* Footer */
 footer {
     background-color: #333;
     color: #fff;
