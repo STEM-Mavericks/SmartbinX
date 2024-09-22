@@ -112,8 +112,12 @@ nav ul li a:hover {
     text-decoration: none; /* Remove underline */
 }
 
+.team-member a:visited {
+    color: black; /* Visited link color */
+}
+
 .team-member a:hover {
-    color: black; /* Change color on hover, adjust as needed */
+    color: black; /* Change color on hover for better visibility */
 }
 
 .team-member img {
