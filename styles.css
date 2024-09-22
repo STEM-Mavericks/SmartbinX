@@ -94,6 +94,7 @@ nav ul li a:hover {
     justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
+    flex-wrap: wrap;
 }
 
 .team-member {
@@ -102,6 +103,8 @@ nav ul li a:hover {
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 180px;
+    flex: 1;
 }
 
 .team-member img {
@@ -186,4 +189,76 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .about h2 {
+        font-size: 1.8rem;
+    }
+
+    .about p {
+        font-size: 1rem;
+    }
+
+    .team {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .team-member {
+        max-width: 100%;
+        width: 80%;
+    }
+
+    .projects h2 {
+        font-size: 1.8rem;
+    }
+
+    .contact h2 {
+        font-size: 1.5rem;
+    }
+
+    .contact p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .about h2 {
+        font-size: 1.5rem;
+    }
+
+    .about p {
+        font-size: 0.9rem;
+    }
+
+    .projects h2 {
+        font-size: 1.5rem;
+    }
 }
