@@ -251,25 +251,19 @@
     </section>
 
     <footer>
-        <h3>Contact Us</h3>
-        <p>Email: <a href="mailto:stemavericks.team@outlook.com">stemavericks.team@outlook.com</a></p>
-        <ul>
-            <li><a href="#"><i class="bx bxl-twitter"></i></a></li>
-            <li><a href="#"><i class="bx bxl-github"></i></a></li>
-            <li><a href="#"><i class="bx bxl-linkedin"></i></a></li>
-        </ul>
+        <p>&copy; 2024 STEM Mavericks. All rights reserved.</p>
     </footer>
 
     <script>
-        const themeToggleCheckbox = document.getElementById('theme-toggle-checkbox');
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        document.body.dataset.theme = currentTheme;
-        themeToggleCheckbox.checked = currentTheme === 'dark';
+        const themeSwitch = document.getElementById('theme-switch');
+        const body = document.body;
 
-        themeToggleCheckbox.addEventListener('change', () => {
-            const newTheme = themeToggleCheckbox.checked ? 'dark' : 'light';
-            document.body.dataset.theme = newTheme;
-            localStorage.setItem('theme', newTheme);
+        themeSwitch.addEventListener('change', () => {
+            if (themeSwitch.checked) {
+                body.setAttribute('data-theme', 'dark');
+            } else {
+                body.setAttribute('data-theme', 'light');
+            }
         });
     </script>
 </body>
