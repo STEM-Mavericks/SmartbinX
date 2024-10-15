@@ -10,8 +10,122 @@
     <link rel="icon" href="images/android-chrome-512x512.png" sizes="512x512" type="image/png">
     <link rel="stylesheet" href="styles.css">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        header, section, footer {
+            padding: 20px;
+            text-align: center;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Toggle Theme Switch */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-toggle label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .theme-toggle input {
+            display: none;
+        }
+
+        .theme-toggle span {
+            margin-left: 10px;
+            font-size: 18px;
+        }
+
+        .toggle-slider {
+            width: 50px;
+            height: 25px;
+            background: linear-gradient(90deg, #FFD700, #004aad);
+            border-radius: 25px;
+            position: relative;
+            transition: background 0.3s ease;
+        }
+
+        .toggle-slider::before {
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        input:checked + .toggle-slider {
+            background: linear-gradient(90deg, #87CEEB, #1a1a2e);
+        }
+
+        input:checked + .toggle-slider::before {
+            transform: translateX(25px);
+        }
+
+        /* Light Mode */
+        body[data-theme='light'] {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        /* Dark Mode */
+        body[data-theme='dark'] {
+            background-color: #1a1a2e;
+            color: #f5f5f5;
+        }
+
+        /* Other Element Styling */
+        header {
+            background-color: inherit;
+            color: inherit;
+        }
+
+        .btn {
+            background-color: #004aad;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        body[data-theme='dark'] .btn {
+            background-color: #333;
+        }
+
+        footer {
+            background-color: inherit;
+            color: inherit;
+        }
+    </style>
 </head>
 <body>
+    <div class="theme-toggle">
+        <label>
+            <input type="checkbox" id="theme-toggle-checkbox">
+            <div class="toggle-slider"></div>
+            <span>Dark Mode</span>
+        </label>
+    </div>
+
     <header>
         <nav>
             <h1><i class="bx bxs-rocket"></i> STEM Mavericks</h1>
@@ -87,41 +201,31 @@
             </ul>
 
             <h4><i class="bx bx-bulb"></i> How It Works</h4>
-            <ul>
-                <li>Moisture Detection: The sensor detects the moisture content of waste.</li>
-                <li>Sorting: The servo motor segregates waste into the appropriate compartment based on moisture levels.</li>
-                <li>Future Upgrades: Bin capacity monitoring and weight measurement will be integrated in later versions.</li>
-            </ul>
-
-            <h4><i class="bx bx-leaf"></i> Environmental Impact</h4>
-            <ul>
-                <li>Reduces human error in waste sorting and encourages recycling.</li>
-                <li>Future versions will prevent bin overflow and provide detailed waste analytics.</li>
-                <li>Contributes to sustainable waste management practices.</li>
-            </ul>
+            <p>The system segregates waste into dry and wet categories using a moisture sensor and moves the waste into corresponding bins with a servo motor. The next steps include adding a load cell for waste measurement and an ultrasonic sensor to monitor bin capacity.</p>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <h2><i class="bx bxs-phone"></i> Get In Touch</h2>
-        <p>We'd love to hear from you! Reach us via email:</p>
-        <p><i class="bx bx-envelope"></i> <a href="mailto:stemavericks.team@outlook.com">stemavericks.team@outlook.com</a></p>
-    </section>
-    <button id="toggle-theme-btn">Toggle Theme</button>
-<script>
-    const toggleThemeBtn = document.getElementById('toggle-theme-btn');
-    const currentTheme = localStorage.getItem('theme') || 'light';
-
-    document.documentElement.setAttribute('data-theme', currentTheme);
-
-    toggleThemeBtn.addEventListener('click', () => {
-        let theme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-    });
-</script>
     <footer>
-        <p>&copy; 2024 STEM Mavericks. All rights reserved.</p>
+        <h3>Contact Us</h3>
+        <p>Email: <a href="mailto:stemavericks.team@outlook.com">stemavericks.team@outlook.com</a></p>
+        <ul>
+            <li><a href="#"><i class="bx bxl-twitter"></i></a></li>
+            <li><a href="#"><i class="bx bxl-github"></i></a></li>
+            <li><a href="#"><i class="bx bxl-linkedin"></i></a></li>
+        </ul>
     </footer>
+
+    <script>
+        const themeToggleCheckbox = document.getElementById('theme-toggle-checkbox');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.body.dataset.theme = currentTheme;
+        themeToggleCheckbox.checked = currentTheme === 'dark';
+
+        themeToggleCheckbox.addEventListener('change', () => {
+            const newTheme = themeToggleCheckbox.checked ? 'dark' : 'light';
+            document.body.dataset.theme = newTheme;
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
 </body>
 </html>
