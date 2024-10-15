@@ -22,7 +22,10 @@
                 <li><a href="#contact"><i class="bx bxs-envelope"></i> Contact</a></li>
             </ul>
             <div class="theme-toggle">
-                <button id="theme-switch-btn">Toggle Dark Mode</button>
+                <label>
+                    <input type="checkbox" id="theme-switch">
+                    <span class="toggle-slider"></span>
+                </label>
             </div>
         </nav>
     </header>
@@ -33,24 +36,80 @@
         <a href="#projects" class="btn">Explore Our Project</a>
     </section>
 
-    <!-- Other sections remain the same -->
+    <section id="about" class="about">
+        <h2>About Us</h2>
+        <p>STEM Mavericks is a dynamic team of innovators committed to addressing environmental and societal challenges through science, technology, engineering, and mathematics.</p>
+
+        <div class="team">
+            <div class="team-member">
+                <img src="images/image_1.jpg" alt="Member 1">
+                <h3><i class="bx bxs-user"></i><a href="https://github.com/Harshyadav0714" target="_blank">  Harsh Yadav</a></h3>
+                <p><i class="bx bxs-briefcase"></i> Leader and Designer</p>
+            </div>
+            <div class="team-member">
+                <img src="images/image_2.jpg" alt="Member 2">
+                <h3><i class="bx bxs-user"></i> <a href="https://github.com/agm024" target="_blank">  Agastya Malunjkar</a></h3>
+                <p><i class="bx bxs-briefcase"></i> Web Developer</p>
+            </div>
+            <div class="team-member">
+                <img src="images/image_3.jpg" alt="Member 3">
+                <h3><i class="bx bxs-user"></i> <a href="https://github.com/SarthakPatil-tech" target="_blank">  Sarthak Patil</a></h3>
+                <p><i class="bx bxs-briefcase"></i> Project Manager</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <h2><i class='bx bxs-cog bx-spin'></i> Our Project</h2>
+
+        <div class="project">
+            <h3><i class="bx bx-recycle bx-spin"></i> Automated Waste Segregation System</h3>
+            <p><strong>The Automated Waste Segregation System</strong> enhances environmental cleanliness by automating waste management. Our current basic model uses an Arduino Uno, servo motor, moisture sensor, and ultrasonic sensor. In the future, we plan to integrate additional features like a load cell, bin full alert, and web app development.</p>
+
+            <h4><i class="bx bx-link bx-tada"></i> App Link</h4>
+            <p>Check out our application: <a href="https://automated-waste-segregation-system.onrender.com/" target="_blank">Visit our App <span>WasteX</span></a></p>
+
+            <h4><i class='bx bx-shield-quarter bx-flashing'></i> Key Features</h4>
+            <ul>
+                <li><i class="bx bxs-check-circle"></i> Smart Waste Sorting: Automatically separates dry and wet waste with precision using moisture sensors.</li>
+                <li><i class="bx bxs-check-circle"></i> Real-Time Monitoring: In the future, track bin levels and waste weight via a web application.</li>
+                <li><i class="bx bxs-check-circle"></i> Overload Prevention: We plan to add an ultrasonic sensor to monitor bin capacity.</li>
+                <li><i class="bx bxs-check-circle"></i> Sustainability Support: Our system will provide waste analytics, promoting environmental sustainability.</li>
+                <li><i class="bx bxs-check-circle"></i> Durability: Designed to function effectively across various environmental conditions.</li>
+            </ul>
+
+            <h4><i class="bx bxs-cog bx-spin"></i> System Components</h4>
+            <ul>
+                <li><strong>Sensors</strong>:</li>
+                <ul>
+                    <li>Moisture Sensor: Differentiates dry from wet waste.</li>
+                    <li>Ultrasonic Sensor: Planned addition to track bin capacity and prevent overflow.</li>
+                </ul>
+                <li><strong>Actuators</strong>:</li>
+                <ul>
+                    <li>Servo Motor: Moves waste based on moisture levels.</li>
+                    <li>Load Cell (Future): Will be used to measure waste weight.</li>
+                </ul>
+            </ul>
+
+            <h4><i class="bx bx-bulb"></i> How It Works</h4>
+            <p>The system segregates waste into dry and wet categories using a moisture sensor and moves the waste into corresponding bins with a servo motor. The next steps include adding a load cell for waste measurement and an ultrasonic sensor to monitor bin capacity.</p>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2024 STEM Mavericks. All rights reserved.</p>
     </footer>
 
     <script>
-        const themeSwitchBtn = document.getElementById('theme-switch-btn');
+        const themeSwitch = document.getElementById('theme-switch');
         const body = document.body;
 
-        themeSwitchBtn.addEventListener('click', () => {
-            const currentTheme = body.getAttribute('data-theme');
-            if (currentTheme === 'light') {
+        themeSwitch.addEventListener('change', () => {
+            if (themeSwitch.checked) {
                 body.setAttribute('data-theme', 'dark');
-                themeSwitchBtn.textContent = 'Toggle Light Mode';
             } else {
                 body.setAttribute('data-theme', 'light');
-                themeSwitchBtn.textContent = 'Toggle Dark Mode';
             }
         });
     </script>
