@@ -1,21 +1,56 @@
+/* Color Variables for Light and Dark Modes */
+:root {
+    --primary-color: #004aad;
+    --secondary-color: #ffbf00;
+    --background-color: #f0f0f5;
+    --text-color: #333;
+    --header-background-color: #004aad;
+    --header-text-color: #fff;
+    --btn-background-color: #ffbf00;
+    --btn-hover-background-color: #ff9300;
+    --card-background-color: #fff;
+    --card-text-color: #333;
+    --card-hover-shadow: rgba(0, 0, 0, 0.2);
+    --footer-background-color: #333;
+    --footer-text-color: #fff;
+}
+
+[data-theme="dark"] {
+    --primary-color: #1a1a2e;
+    --secondary-color: #e94560;
+    --background-color: #121212;
+    --text-color: #e0e0e0;
+    --header-background-color: #1a1a2e;
+    --header-text-color: #e0e0e0;
+    --btn-background-color: #e94560;
+    --btn-hover-background-color: #ff1e56;
+    --card-background-color: #1f1f2e;
+    --card-text-color: #e0e0e0;
+    --card-hover-shadow: rgba(255, 255, 255, 0.2);
+    --footer-background-color: #1a1a2e;
+    --footer-text-color: #e0e0e0;
+}
+
 /* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f5;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* Header and Navigation */
 header {
-    background-color: #004aad;
+    background-color: var(--header-background-color);
     padding: 1rem;
     text-align: center;
+    transition: background-color 0.3s;
 }
 
 header h1 {
-    color: #fff;
+    color: var(--header-text-color);
     font-size: 2rem;
 }
 
@@ -30,21 +65,22 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: var(--header-text-color);
     text-decoration: none;
     font-size: 1.2rem;
 }
 
 nav ul li a:hover {
-    color: #ffbf00;
+    color: var(--secondary-color);
 }
 
 /* Hero Section */
 .hero {
-    background-color: #004aad;
-    color: #fff;
+    background-color: var(--primary-color);
+    color: var(--header-text-color);
     padding: 3rem 0;
     text-align: center;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .hero h2 {
@@ -58,41 +94,41 @@ nav ul li a:hover {
 }
 
 .hero .btn {
-    background-color: #ffbf00; /* Background color */
-    color: #fff; /* Text color */
-    padding: 0.8rem 2rem; /* Padding */
-    border: none; /* Remove default border */
-    border-radius: 25px; /* Rounded corners */
-    text-transform: uppercase; /* Uppercase text */
-    font-size: 1rem; /* Font size */
-    cursor: pointer; /* Pointer cursor on hover */
-    text-decoration: none; /* Remove underline */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+    background-color: var(--btn-background-color);
+    color: var(--header-text-color);
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 25px;
+    text-transform: uppercase;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 8px var(--card-hover-shadow);
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .hero .btn:hover {
-    background-color: #ff9300; /* Change background color on hover */
-    transform: translateY(-2px); /* Lift effect on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+    background-color: var(--btn-hover-background-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px var(--card-hover-shadow);
 }
-
 
 /* About Section */
 .about {
-    background-color: #fff;
+    background-color: var(--card-background-color);
     padding: 2rem;
     text-align: center;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .about h2 {
     font-size: 2.2rem;
-    color: #004aad;
+    color: var(--primary-color);
 }
 
 .about p {
     font-size: 1.1rem;
-    color: #666;
+    color: var(--text-color);
 }
 
 .team {
@@ -104,32 +140,19 @@ nav ul li a:hover {
 }
 
 .team-member {
-    background-color: #f9f9f9;
+    background-color: var(--card-background-color);
     padding: 1rem;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--card-hover-shadow);
     max-width: 200px;
     flex: 1;
-    transition: transform 0.3s, box-shadow 0.3s; /* Add transition for smooth effect */
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .team-member:hover {
-    transform: translateY(-10px); /* Lift the box up */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhance the shadow for a 3D effect */
-}
-
-.team-member a {
-    color: black; /* Link color */
-    text-decoration: none; /* Remove underline */
-}
-
-.team-member a:visited {
-    color: black; /* Visited link color */
-}
-
-.team-member a:hover {
-    color: black; /* Change color on hover for better visibility */
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px var(--card-hover-shadow);
 }
 
 .team-member img {
@@ -141,39 +164,36 @@ nav ul li a:hover {
 
 .team-member h3 {
     margin: 1rem 0 0.5rem;
-    color: #333;
+    color: var(--card-text-color);
 }
 
 .team-member p {
-    color: #666;
+    color: var(--text-color);
 }
 
 /* Projects Section */
 .projects {
-    background-color: #f0f0f5;
+    background-color: var(--background-color);
     padding: 2rem;
     text-align: center;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .projects h2 {
-    color: #004aad;
+    color: var(--primary-color);
     font-size: 2rem;
 }
 
-.projects h4 i{
-    color: orange;
-}
-
 .project {
-    background-color: #fff;
+    background-color: var(--card-background-color);
     padding: 1.5rem;
     border-radius: 8px;
     margin-top: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px var(--card-hover-shadow);
 }
 
 .project h3 {
-    color: #ff9300;
+    color: var(--secondary-color);
 }
 
 .project ul {
@@ -183,86 +203,55 @@ nav ul li a:hover {
 }
 
 .project ul li {
-    color: #666;
+    color: var(--text-color);
     margin-bottom: 0.5rem;
 }
 
 .project a {
-    color: black; /* Link color */
-    text-decoration: none; /* Remove underline */
-}
-
-.project a:visited {
-    color: black; /* Visited link color */
+    color: var(--text-color);
+    text-decoration: none;
 }
 
 .project a:hover {
-    color: #ff9300;
+    color: var(--secondary-color);
     font-weight: bold;
 }
 
-span{
-    color: #ff9300; /* Example accent color */
-    font-weight: bold; /* To make it stand out */
+span {
+    color: var(--secondary-color);
+    font-weight: bold;
 }
+
 /* Contact Section */
 .contact {
-    background-color: #004aad;
-    color: #fff;
+    background-color: var(--primary-color);
+    color: var(--header-text-color);
     padding: 2rem;
     text-align: center;
 }
 
-.contact h2 {
-    font-size: 2rem;
-}
-
-.contact p {
-    font-size: 1.2rem;
-}
-
 .contact a {
-    color: #ffbf00;
+    color: var(--secondary-color);
     text-decoration: none;
 }
 
 .contact a:hover {
-    color: #ff9300;
+    color: var(--btn-hover-background-color);
 }
 
 /* Footer */
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--footer-background-color);
+    color: var(--footer-text-color);
     text-align: center;
     padding: 1rem;
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.5rem;
-    }
-
     nav ul li {
         display: block;
         margin: 0.5rem 0;
-    }
-
-    .hero h2 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .about h2 {
-        font-size: 1.8rem;
-    }
-
-    .about p {
-        font-size: 1rem;
     }
 
     .team {
@@ -273,18 +262,6 @@ footer {
     .team-member {
         max-width: 100%;
         width: 80%;
-    }
-
-    .projects h2 {
-        font-size: 1.8rem;
-    }
-
-    .contact h2 {
-        font-size: 1.5rem;
-    }
-
-    .contact p {
-        font-size: 1rem;
     }
 }
 
@@ -299,10 +276,6 @@ footer {
 
     .about h2 {
         font-size: 1.5rem;
-    }
-
-    .about p {
-        font-size: 0.9rem;
     }
 
     .projects h2 {
