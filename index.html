@@ -107,7 +107,19 @@
         <p>We'd love to hear from you! Reach us via email:</p>
         <p><i class="bx bx-envelope"></i> <a href="mailto:stemavericks.team@outlook.com">stemavericks.team@outlook.com</a></p>
     </section>
+    <button id="toggle-theme-btn">Toggle Theme</button>
+<script>
+    const toggleThemeBtn = document.getElementById('toggle-theme-btn');
+    const currentTheme = localStorage.getItem('theme') || 'light';
 
+    document.documentElement.setAttribute('data-theme', currentTheme);
+
+    toggleThemeBtn.addEventListener('click', () => {
+        let theme = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    });
+</script>
     <footer>
         <p>&copy; 2024 STEM Mavericks. All rights reserved.</p>
     </footer>
