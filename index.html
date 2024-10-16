@@ -10,6 +10,29 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/STEM-Mavericks24/Portfolio-Static@latest/css/style.min.css" media="all" as="style">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
     <link rel="preload" href="https://cdn.jsdelivr.net/gh/STEM-Mavericks24/Portfolio-Static@latest/css/style.min.css" as="style">
+    <style>
+        /* Inline critical CSS for performance */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+        }
+        .hero {
+            background-color: #f5f5f5;
+            padding: 2rem;
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -112,6 +135,18 @@
         <p>&copy; 2024 STEM Mavericks. All rights reserved.</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/gh/STEM-Mavericks24/Portfolio-Static@latest/js/script.min.js" defer></script>
+    <script>
+        // Asynchronous loading of scripts for better performance
+        document.addEventListener("DOMContentLoaded", function () {
+            const loadScript = (src) => {
+                const script = document.createElement("script");
+                script.src = src;
+                script.async = true;
+                document.body.appendChild(script);
+            };
+
+            loadScript("https://cdn.jsdelivr.net/gh/STEM-Mavericks24/Portfolio-Static@latest/js/script.js");
+        });
+    </script>
 </body>
 </html>
