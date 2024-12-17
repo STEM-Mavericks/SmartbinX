@@ -49,7 +49,7 @@ nav ul li a:hover {
 
 .hero h2 {
     font-size: 2.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 .hero p {
@@ -145,6 +145,8 @@ nav ul li a:hover {
 }
 
 .team-member p {
+    font-size: 0.9rem;
+    line-height: 1.2;
     color: #666;
 }
 
