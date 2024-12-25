@@ -208,3 +208,47 @@ body{
 .container.active .toggle-right{
     transform: translateX(200%);
 }
+
+.password-group {
+    display: flex;
+    align-items: center;
+    position: relative; /* Ensuring the eye icon is inside the input box */
+}
+
+.password-toggle {
+    font-size: 18px;
+    position: absolute;
+    right: 10px;  /* Positioned on the right */
+    cursor: pointer;
+    color: #777;
+}
+
+
+.input-group {
+    display: flex;
+    align-items: center;
+    position: relative;  /* Allow absolute positioning within the container */
+    margin-bottom: 20px;
+    width: 100%; /* Ensure inputs take the full width of the parent container */
+}
+
+/* Styling the icon (user and lock) */
+.input-group i {
+    font-size: 18px;
+    color: #777;
+    margin-right: 10px; /* Space between icon and input field */
+}
+
+/* Styling for input fields */
+.input-group input {
+    width: 100%;  /* Increase the input width to match parent */
+    max-width: 350px;  /* You can adjust the max-width as necessary */
+    padding: 12px 15px;
+    padding-right: 35px; /* Added space for the eye icon inside input */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    background-color: #eee;
+    margin: 0 auto; /* Center the input box */
+}

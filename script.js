@@ -9,3 +9,28 @@ registerBtn.addEventListener('click', () => {
 loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
 });
+
+// Password Toggle Functionality
+document.getElementById("signup-toggle").addEventListener("click", () => {
+    const passwordField = document.getElementById("signup-password");
+    togglePassword(passwordField, "signup-toggle");
+});
+
+document.getElementById("signin-toggle").addEventListener("click", () => {
+    const passwordField = document.getElementById("signin-password");
+    togglePassword(passwordField, "signin-toggle");
+});
+
+// Toggle Function
+function togglePassword(inputField, toggleIconId) {
+    const icon = document.getElementById(toggleIconId);
+    if (inputField.type === "password") {
+        inputField.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    } else {
+        inputField.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    }
+}

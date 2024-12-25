@@ -9,38 +9,57 @@
 </head>
 
 <body>
-
     <div class="container" id="container">
+        <!-- Sign-Up Form -->
         <div class="form-container sign-up">
             <form>
-                <h1>Create Account</h1>
-                <span></span>
-                <input type="text" placeholder="Name">
-                <input type="username" placeholder="Username">
-                <input type="password" placeholder="Password">
+                <h1>Create Account</h1>&nbsp;
+                <div class="input-group">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="Name">
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-user-circle"></i>
+                    <input type="text" placeholder="Username">
+                </div>
+                <div class="input-group password-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Password" id="signup-password">
+                    <i class="fa-solid fa-eye password-toggle" id="signup-toggle"></i>
+                </div>
                 <button>Sign Up</button>
             </form>
         </div>
+
+        <!-- Sign-In Form -->
         <div class="form-container sign-in">
             <form>
-                <h1>Sign In</h1>
-                <span></span>
-                <input type="username" placeholder="Username">
-                <input type="password" placeholder="Password">
-                <a href="#">Forget Your Password?</a>
+                <h1>Sign In</h1>&nbsp;
+                <div class="input-group">
+                    <i class="fa-solid fa-user-circle"></i>
+                    <input type="text" placeholder="Username">
+                </div>
+                <div class="input-group password-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Password" id="signin-password">
+                    <i class="fa-solid fa-eye password-toggle" id="signin-toggle"></i>
+                </div>
+                <a href="#">Forgot Your Password?</a>
                 <button>Sign In</button>
             </form>
         </div>
+
+        <!-- Toggle Panel -->
         <div class="toggle-container">
             <div class="toggle">
                 <div class="toggle-panel toggle-left">
                     <h1>Welcome Back!</h1>
-                    <p>Enter your personal details to use all of site features</p>
+                    <p>Enter your details to sign in and explore more!</p>
                     <button class="hidden" id="login">Sign In</button>
                 </div>
                 <div class="toggle-panel toggle-right">
                     <h1>Hello!</h1>
-                    <p>Register with your personal details to use all of site features</p>
+                    <p>Enter your details to create your account!</p>
                     <button class="hidden" id="register">Sign Up</button>
                 </div>
             </div>
@@ -49,5 +68,4 @@
 
     <script src="script.js"></script>
 </body>
-
 </html>
