@@ -3,25 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
-    <title>Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Login/Register</title>
 </head>
+
 <body>
-    <div class="container">
-        <div class="login-box">
-            <h2>Login</h2>
-            <form action="/login" method="POST">
-                <div class="input-group">
-                    <label for="username">Username</label>
-                    <input type="text" placeholder="Enter your username" id="username" name="username" required>
-                </div>
-                <div class="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" placeholder="Enter your password" id="password" name="password" required>
-                </div>
-                <button type="submit" class="login-button">Login</button>
+
+    <div class="container" id="container">
+        <div class="form-container sign-up">
+            <form>
+                <h1>Create Account</h1>
+                <span></span>
+                <input type="text" placeholder="Name">
+                <input type="username" placeholder="Username">
+                <input type="password" placeholder="Password">
+                <button>Sign Up</button>
             </form>
         </div>
+        <div class="form-container sign-in">
+            <form>
+                <h1>Sign In</h1>
+                <span></span>
+                <input type="username" placeholder="Username">
+                <input type="password" placeholder="Password">
+                <a href="#">Forget Your Password?</a>
+                <button>Sign In</button>
+            </form>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your personal details to use all of site features</p>
+                    <button class="hidden" id="login">Sign In</button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello!</h1>
+                    <p>Register with your personal details to use all of site features</p>
+                    <button class="hidden" id="register">Sign Up</button>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
