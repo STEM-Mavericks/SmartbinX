@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SmartbinX</title>
     <link rel="icon" href="{{ url_for('static', filename='images/favicon-16x16.png') }}" sizes="16x16" type="image/png">
-    <link rel="icon" href="hide/images/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon-32x32.png') }}" sizes="32x32" type="image/png">
     <link rel="icon" href="hide/images/android-chrome-192x192.png" sizes="192x192" type="image/png">
     <link rel="icon" href="hide/images/android-chrome-512x512.png" sizes="512x512" type="image/png">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
@@ -42,12 +42,12 @@
                 <p><i class="bx bxs-briefcase"></i> Leader and Programmer</p>
             </div>
             <div class="team-member">
-                <img src="hide/images/image_1.jpg" alt="Member 2">
+                <img src="{{ url_for('static', filename='images/image_1.jpg') }}" alt="Member 2">
                 <h3><i class="bx bxs-user"></i><a href="https://github.com/Harshyadav0714" target="_blank">  Harsh Yadav</a></h3>
                 <p><i class="bx bxs-briefcase"></i> Implements and Designer</p>
             </div>
             <div class="team-member">
-                <img src="hide/images/image_1.jpg" alt="Member 3">
+                <img src="{{ url_for('static', filename='images/image_1.jpg') }}" alt="Member 3">
                 <h3><i class="bx bxs-user"></i> <a href="https://github.com/SarthakPatil-tech" target="_blank">  Sarthak Patil</a></h3>
                 <p><i class="bx bxs-briefcase"></i> Project Manager</p>
             </div>
