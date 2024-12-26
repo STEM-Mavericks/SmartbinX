@@ -10,9 +10,8 @@
 
 <body>
     <div class="container" id="container">
-        <!-- Sign-Up Form -->
         <div class="form-container sign-up">
-            <form>
+            <form action="{{ url_for('register') }}" method="post">
                 <h1>Create Account</h1>&nbsp;
                 <div class="input-group">
                     <i class="fa-solid fa-user"></i>
@@ -31,9 +30,8 @@
             </form>
         </div>
 
-        <!-- Sign-In Form -->
         <div class="form-container sign-in">
-            <form>
+            <form action="{{ url_for('login') }}" method="post"">
                 <h1>Sign In</h1>&nbsp;
                 <div class="input-group">
                     <i class="fa-solid fa-user-circle"></i>
@@ -53,19 +51,19 @@
         <div class="toggle-container">
             <div class="toggle">
                 <div class="toggle-panel toggle-left">
-                    <h1>Welcome Back!</h1>
-                    <p>Enter your details to sign in and explore more!</p>
+                    <h1>Hello!</h1>
+                    <p>Enter your details to create your account!</p>
                     <button class="hidden" id="login">Sign In</button>
                 </div>
                 <div class="toggle-panel toggle-right">
-                    <h1>Hello!</h1>
-                    <p>Enter your details to create your account!</p>
+                    <h1>Welcome Back!</h1>
+                    <p>Enter your details to sign in and explore more!</p>
                     <button class="hidden" id="register">Sign Up</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
