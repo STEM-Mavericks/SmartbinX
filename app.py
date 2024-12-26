@@ -1,7 +1,11 @@
 from flask import Flask, render_template, flash, url_for, session, request, redirect
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
-app,secret_key =
+app,secret_key = os.getenv('')
 
 @app.route('/')
 def home():
