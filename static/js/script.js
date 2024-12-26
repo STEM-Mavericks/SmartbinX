@@ -10,7 +10,6 @@ loginBtn.addEventListener('click', () => {
     container.classList.remove("active");
 });
 
-// Password Toggle Functionality
 document.getElementById("signup-toggle").addEventListener("click", () => {
     const passwordField = document.getElementById("signup-password");
     togglePassword(passwordField, "signup-toggle");
