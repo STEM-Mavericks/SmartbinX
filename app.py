@@ -17,6 +17,11 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        if username in users and users[username]
+        if username in users and users[username] == password:
+            session['username'] = username
+            flash('Login Successfull!', 'success')
+            return redirect(url_for('login'))
+        else
+            flash
 if __name__ == '__main__':
     app.run(debug=True)
