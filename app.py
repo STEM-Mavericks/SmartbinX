@@ -15,7 +15,8 @@ def home():
 def dashboard():
     if 'username' not in session:
         flash('Please Log In First!','warning')
-        return redirect(url_)
+        return redirect(url_for('login'))
+    return f"Welcome to your dashboard, {session['username']}!"
 
 @app.route('/login', methods=['GET','POST'])
 def login():
@@ -31,5 +32,7 @@ def login():
             flash('Invalid Username or Password', 'danger')
         return render_template('login.html')
 
+@app.route('/register', methods=['GET','POST'])
+def register():
 if __name__ == '__main__':
     app.run(debug=True)
