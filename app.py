@@ -31,45 +31,41 @@ def dashboard():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
+        action = request.form.get('action')
         username = request.form.get('username')
         password = request.form.get('password')
 
-        if not username or not password:
-            flash('Username and Password are required', 'danger')
-            return redirect(url_for('login'))
+        if action == 'login':
+            if not username or not password:
+                flash('Username and Password are required', 'danger')
+                return redirect(url_for('login'))
 
-        if username in users and check_password_hash(users[username], password):
-            session['username'] = username
-            flash('Login Successful!', 'success')
-            return redirect(url_for('dashboard'))
-        else:
-            flash('Invalid Username or Password', 'danger')
+            if username in users and check_password_hash(users[username], password):
+                session['username'] = username
+                flash('Login Successful!', 'success')
+                return redirect(url_for('dashboard'))
+            else:
+                flash('Invalid Username or Password', 'danger')
 
-    return render_template('login.html')
+        elif action == 'register':
+            confirm_password = request.form.get('confirm_password')
 
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
-        confirm_password = request.form.get('confirm_password')
+            if not username or not password or not confirm_password:
+                flash('All fields are required', 'danger')
+                return redirect(url_for('login'))
 
-        if not username or not password or not confirm_password:
-            flash('All fields are required', 'danger')
-            return redirect(url_for('register'))
-
-        if not validate_username(username):
-            flash('Username must be between 3 and 20 characters', 'danger')
-        elif not validate_password(password):
-            flash('Password must be at least 8 characters long, contain a number and an uppercase letter', 'danger')
-        elif username in users:
-            flash('Username already exists', 'danger')
-        elif password != confirm_password:
-            flash('Passwords do not match', 'danger')
-        else:
-            users[username] = generate_password_hash(password)
-            flash('Registration Successful! Please log in.', 'success')
-            return redirect(url_for('login'))
+            if not validate_username(username):
+                flash('Username must be between 3 and 20 characters', 'danger')
+            elif not validate_password(password):
+                flash('Password must be at least 8 characters long, contain a number and an uppercase letter', 'danger')
+            elif username in users:
+                flash('Username already exists', 'danger')
+            elif password != confirm_password:
+                flash('Passwords do not match', 'danger')
+            else:
+                users[username] = generate_password_hash(password)
+                flash('Registration Successful! Please log in.', 'success')
+                return redirect(url_for('login'))
 
     return render_template('login.html')
 
