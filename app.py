@@ -41,7 +41,8 @@ def login():
 
 @app.route('/register', methods=['GET','POST'])
 def register():
-    if request.methods==
+    if request.methods == 'POST':
+        
 
 @app.route('/logout')
 def logout():
