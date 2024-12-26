@@ -7,10 +7,7 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')
 
-users = {
-    "admin": "password123",
-    "user": "mypassword"
-}
+users = {}
 
 @app.route('/')
 def home():
@@ -42,8 +39,9 @@ def login():
 @app.route('/register', methods=['GET','POST'])
 def register():
     if request.methods == 'POST':
-        
-
+        username = request.form['username']
+        password = request.form['password']
+        confirm_password = request.form['']
 @app.route('/logout')
 def logout():
     session.pop('username', None)
