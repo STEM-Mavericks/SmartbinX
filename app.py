@@ -2,6 +2,7 @@ from flask import Flask, render_template, flash, url_for, session, request, redi
 from dotenv import load_dotenv
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
+import re
 
 load_dotenv()
 
@@ -9,6 +10,12 @@ app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')
 
 users = {}
+
+def validate_username(username):
+    return len(username) >= 3 and len(username) <= 20
+
+def validate_password(password):
+    return len(password) >= 8 and re.search(r"\d", password) and re.search(r"[A-Z]", password)
 
 @app.route('/')
 def home():
@@ -43,7 +50,11 @@ def register():
         password = request.form['password']
         confirm_password = request.form['confirm_password']
 
-        if username in users:
+        if not validate_username(username):
+            flash('Username must be between 3 and 20 characters', 'danger')
+        elif not validate_password(password):
+            flash('Password must be at least 8 characters long, contain a number and an uppercase letter', 'danger')
+        elif username in users:
             flash('Username already exists', 'danger')
         elif password != confirm_password:
             flash('Passwords do not match', 'danger')
@@ -53,7 +64,7 @@ def register():
             return redirect(url_for('login'))
 
     return render_template('register.html')
-    
+
 @app.route('/logout')
 def logout():
     session.pop('username', None)
