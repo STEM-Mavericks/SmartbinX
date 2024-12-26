@@ -26,7 +26,7 @@ def dashboard():
     if 'username' not in session:
         flash('Please Log In First!', 'warning')
         return redirect(url_for('login'))
-    return f"Welcome to your dashboard, {session['username']}!"
+    return render_template('dashboard.html', username=session['username'])
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
