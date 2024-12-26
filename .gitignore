@@ -402,3 +402,4 @@ autocommit.sh
 
 # Environment Variables
 .env
+keygen.py
