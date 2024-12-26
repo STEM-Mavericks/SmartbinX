@@ -36,24 +36,6 @@ def login():
 
     return render_template('login.html')
 
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if request.method == 'POST':
-        username = request.form.get['username']
-        password = request.form.get['password']
-        confirm_password = request.form['confirm_password']
-
-        if username in users:
-            flash('Username already taken!', 'warning')
-        elif password != confirm_password:
-            flash('Passwords do not match!', 'danger')
-        else:
-            users[username] = generate_password_hash(password)
-            flash('Registration Successful! You can now log in.', 'success')
-            return redirect(url_for('login'))
-
-    return render_template('register.html')
-
 @app.route('/logout')
 def logout():
     session.pop('username', None)
