@@ -11,7 +11,7 @@
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form action="/login">
+            <form action="{{ url_for('register') }}" method="post">
                 <h1>Create Account</h1>&nbsp;
                 <div class="input-group">
                     <i class="fa-solid fa-user"></i>
@@ -32,7 +32,7 @@
 
         <!-- Sign-In Form -->
         <div class="form-container sign-in">
-            <form action="/login">
+            <form action="{{ url_for('login') }}" method="post"">
                 <h1>Sign In</h1>&nbsp;
                 <div class="input-group">
                     <i class="fa-solid fa-user-circle"></i>
