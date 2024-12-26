@@ -11,7 +11,11 @@ app,secret_key = os.getenv('SECRET_KEY')
 def home():
     return render_template('index.html')
 
-
+@app.route('/dashboard')
+def dashboard():
+    if 'username' not in session:
+        flash('Please Log In First!','warning')
+        return redirect(url_)
 
 @app.route('/login', methods=['GET','POST'])
 def login():
