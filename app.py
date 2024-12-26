@@ -1,12 +1,14 @@
 from flask import Flask, render_template, flash, url_for, session, request, redirect
 from dotenv import load_dotenv
 import os
+from werkzeug.security import generate_password_hash, check_password_hash
 
 load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')
 
+# Mock user storage - storing hashed passwords
 users = {}
 
 @app.route('/')
@@ -26,8 +28,8 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        # Authenticate user
-        if username in users and users[username] == password:
+        # Check if user exists and if password matches the hashed password
+        if username in users and check_password_hash(users[username], password):
             session['username'] = username
             flash('Login Successful!', 'success')
             return redirect(url_for('dashboard'))
@@ -36,23 +38,27 @@ def login():
 
     return render_template('login.html')
 
-@app.route('/register', methods=['GET','POST'])
+@app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
         confirm_password = request.form['confirm_password']
 
+        # Check if the username is taken
         if username in users:
             flash('Username already taken!', 'warning')
+        # Check if passwords match
         elif password != confirm_password:
             flash('Passwords do not match!', 'danger')
         else:
-            users[username] = password
+            # Hash the password before storing it
+            users[username] = generate_password_hash(password)
             flash('Registration Successful! You can now log in.', 'success')
             return redirect(url_for('login'))
 
     return render_template('register.html')
+
 @app.route('/logout')
 def logout():
     session.pop('username', None)
