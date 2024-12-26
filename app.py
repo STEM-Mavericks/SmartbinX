@@ -31,8 +31,12 @@ def dashboard():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        if not username or not password:
+            flash('Username and Password are required', 'danger')
+            return redirect(url_for('login'))
 
         if username in users and check_password_hash(users[username], password):
             session['username'] = username
@@ -46,9 +50,13 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-        confirm_password = request.form['confirm_password']
+        username = request.form.get('username')
+        password = request.form.get('password')
+        confirm_password = request.form.get('confirm_password')
+
+        if not username or not password or not confirm_password:
+            flash('All fields are required', 'danger')
+            return redirect(url_for('register'))
 
         if not validate_username(username):
             flash('Username must be between 3 and 20 characters', 'danger')
@@ -63,7 +71,7 @@ def register():
             flash('Registration Successful! Please log in.', 'success')
             return redirect(url_for('login'))
 
-    return render_template('register.html')
+    return render_template('login.html')
 
 @app.route('/logout')
 def logout():
