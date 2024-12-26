@@ -399,3 +399,6 @@ FodyWeavers.xsd
 
 # Autocommit.sh
 autocommit.sh
+
+# Environment Variables
+.env
