@@ -8,7 +8,6 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')
 
-# Mock user storage - storing hashed passwords
 users = {}
 
 @app.route('/')
@@ -28,7 +27,6 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
-        # Check if user exists and if password matches the hashed password
         if username in users and check_password_hash(users[username], password):
             session['username'] = username
             flash('Login Successful!', 'success')
@@ -41,18 +39,15 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
+        username = request.form.get['username']
+        password = request.form.get['password']
         confirm_password = request.form['confirm_password']
 
-        # Check if the username is taken
         if username in users:
             flash('Username already taken!', 'warning')
-        # Check if passwords match
         elif password != confirm_password:
             flash('Passwords do not match!', 'danger')
         else:
-            # Hash the password before storing it
             users[username] = generate_password_hash(password)
             flash('Registration Successful! You can now log in.', 'success')
             return redirect(url_for('login'))
