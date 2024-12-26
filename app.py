@@ -11,8 +11,9 @@ app,secret_key = os.getenv('SECRET_KEY')
 def home():
     return render_template('index.html')
 
-@app.route('/login')
+@app.route('/login', methods=['GET','POST'])
 def login():
+    if request.method
     return render_template('login.html')
 
 if __name__ == '__main__':
