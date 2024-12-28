@@ -38,7 +38,7 @@
                     <input type="password" name="password" placeholder="Password" id="signup-password">
                     <i class="fa-solid fa-eye password-toggle" id="signup-toggle"></i>
                 </div>
-                <button>Sign Up</button>
+                <button type="submit" name="action" value="register">Sign Up</button>
             </form>
         </div>
 
@@ -48,15 +48,15 @@
                 <input type="hidden" name="action" value="register">
                 <div class="input-group">
                     <i class="fa-solid fa-user-circle"></i>
-                    <input type="text" placeholder="Username">
+                    <input type="text" name="username" placeholder="Username">
                 </div>
                 <div class="input-group password-group">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Password" id="signin-password">
+                    <input type="password" name="password" placeholder="Password" id="signin-password">
                     <i class="fa-solid fa-eye password-toggle" id="signin-toggle"></i>
                 </div>
                 <a href="#">Forgot Your Password?</a>
-                <button>Sign In</button>
+                <button type="submit" name="action" value="login">Sign In</button>
             </form>
         </div>
 
