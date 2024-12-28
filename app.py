@@ -57,11 +57,11 @@ def auth():
                 flash('Username and Password are required.', 'danger')
                 return redirect(url_for('auth'))
             
-            user = User.query.filter_by(username=username).first()  # Query the database for the user
-            if user and check_password_hash(user.password, password):  # Check password hash
+            user = User.query.filter_by(username=username).first()
+            if user and check_password_hash(user.password, password): 
                 login_user(user)
                 flash(f'Welcome back, {username}!', 'success')
-                return redirect(url_for('dashboard'))  # Redirect to dashboard after successful login
+                return redirect(url_for('dashboard'))
             else:
                 flash('Invalid username or password. Please try again.', 'danger')
                 return redirect(url_for('auth'))
@@ -76,13 +76,12 @@ def auth():
             elif User.query.filter_by(username=username).first():
                 flash('This username is already taken. Please choose another.', 'danger')
             else:
-                # Register the new user and store in the database
                 hashed_password = generate_password_hash(password)
                 new_user = User(username=username, password=hashed_password)
                 db.session.add(new_user)
                 db.session.commit()
                 flash('Registration successful! You can now log in.', 'success')
-                return redirect(url_for('auth'))  # Redirect to login after registration
+                return redirect(url_for('auth'))
 
     return render_template('auth.html')
 
