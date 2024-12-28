@@ -25,6 +25,10 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return f"User('{self.username}')"
 
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
 def validate_username(username):
     return len(username) >= 3 and len(username) <= 20
 
