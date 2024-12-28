@@ -67,7 +67,7 @@ def login():
                 flash('Registration Successful! Please log in.', 'success')
                 return redirect(url_for('login'))
 
-    return render_template('login.html')
+    return render_template('auth.html')
 
 @app.route('/logout')
 def logout():
