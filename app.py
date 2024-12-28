@@ -25,7 +25,7 @@ def home():
 @app.route('/dashboard')
 def dashboard():
     if 'username' not in session:
-        flash('Please log in first!', 'warning')
+        flash('You need to log in to access the dashboard.', 'warning')
         return redirect(url_for('auth'))
     return render_template('dashboard.html', username=session['username'])
 
@@ -37,9 +37,8 @@ def auth():
         password = request.form.get('password')
 
         if action == 'login':
-            # Handle login
             if not username or not password:
-                flash('Username and Password are required.', 'danger')  # Error message
+                flash('Username and Password are required.', 'danger')
                 return redirect(url_for('auth'))
             if username in users and check_password_hash(users[username], password):
                 session['username'] = username
