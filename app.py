@@ -54,32 +54,27 @@ def auth():
 
         # Handle Registration
         elif action == 'register':
-            confirm_password = request.form.get('confirm_password')
-
-            # Validation checks
-            if not username or not password or not confirm_password:
-                flash('All fields are required for registration.', 'danger')
+            if not username or not password:
+                flash('Username and Password are required for registration.', 'danger')
             elif not validate_username(username):
                 flash('Username must be between 3 and 20 characters.', 'danger')
             elif not validate_password(password):
                 flash('Password must be at least 8 characters long, contain a number, and an uppercase letter.', 'danger')
             elif username in users:
                 flash('This username is already taken. Please choose another.', 'danger')
-            elif password != confirm_password:
-                flash('Passwords do not match. Please re-enter them.', 'danger')
             else:
                 # Register the new user
                 users[username] = generate_password_hash(password)
                 flash('Registration successful! You can now log in.', 'success')
-                return redirect(url_for('auth'))  # Redirect to the auth page to log in after registration
+                return redirect(url_for('auth'))  # Redirect to the login page after successful registration
 
     return render_template('auth.html')
 
 @app.route('/logout')
 def logout():
-    session.pop('username', None)  # Remove the username from the session
+    session.pop('username', None)
     flash('You have been logged out.', 'info')
-    return redirect(url_for('auth'))  # Redirect to the auth page
+    return redirect(url_for('auth')) 
 
 if __name__ == '__main__':
     app.run(debug=True)
