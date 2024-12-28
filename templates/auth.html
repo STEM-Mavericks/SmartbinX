@@ -24,7 +24,7 @@
         <div class="form-container sign-up">
             <form action="{{ url_for('auth') }}" method="post">
                 <h1>Sign Up</h1>&nbsp;
-                <input type="hidden" name="action" value="login">
+                <input type="hidden" name="action" value="register">
                 <div class="input-group">
                     <i class="fa-solid fa-user"></i>
                     <input type="text" placeholder="Name">
@@ -45,7 +45,7 @@
         <div class="form-container sign-in">
             <form action="{{ url_for('auth') }}" method="post">
                 <h1>Sign In</h1>&nbsp;
-                <input type="hidden" name="action" value="register">
+                <input type="hidden" name="action" value="login">
                 <div class="input-group">
                     <i class="fa-solid fa-user-circle"></i>
                     <input type="text" name="username" placeholder="Username">
