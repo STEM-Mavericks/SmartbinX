@@ -1,5 +1,6 @@
 from flask import Flask, render_template, flash, url_for, session, request, redirect
 from dotenv import load_dotenv
+from flask_sqlalchemy import SQLAlchemy
 import os
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
@@ -8,8 +9,7 @@ load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')  # Ensure SECRET_KEY is loaded correctly from .env file
-
-users = {}
+db = SQLAlchemy(app)
 
 # Username and Password validation functions
 def validate_username(username):
