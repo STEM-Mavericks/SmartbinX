@@ -28,8 +28,8 @@ def dashboard():
         return redirect(url_for('login'))
     return render_template('dashboard.html', username=session['username'])
 
-@app.route('/login', methods=['GET', 'POST'])
-def login():
+@app.route('/auth', methods=['GET', 'POST'])
+def auth():
     if request.method == 'POST':
         action = request.form.get('action')
         username = request.form.get('username')
