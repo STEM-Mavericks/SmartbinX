@@ -52,7 +52,6 @@ def auth():
                 flash('Invalid username or password. Please try again.', 'danger')
                 return redirect(url_for('auth'))
 
-        # Handle Registration
         elif action == 'register':
             if not username or not password:
                 flash('Username and Password are required for registration.', 'danger')
