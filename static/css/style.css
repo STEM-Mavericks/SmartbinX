@@ -252,3 +252,25 @@ body{
     background-color: #eee;
     margin: 0 auto; /* Center the input box */
 }
+
+#flash-container {
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.flash-message {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.flash-message.success {
+    background-color: #4CAF50;
+}
+
+.flash-message.danger {
+    background-color: #f44336;
+}
