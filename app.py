@@ -37,29 +37,33 @@ def auth():
         password = request.form.get('password')
 
         if action == 'login':
+            # Handle login
             if not username or not password:
-                flash('Username and Password are required.', 'danger')
-            elif username in users and check_password_hash(users[username], password):
+                flash('Username and Password are required.', 'danger')  # Error message
+                return redirect(url_for('auth'))
+            if username in users and check_password_hash(users[username], password):
                 session['username'] = username
-                flash('Login successful!', 'success')
-                return redirect(url_for('dashboard'))
+                flash(f'Welcome back, {username}!', 'success')
+                return redirect(url_for('dashboard')) 
             else:
-                flash('Invalid username or password.', 'danger')
+                flash('Invalid username or password. Please try again.', 'danger')
+                return redirect(url_for('auth'))
+
         elif action == 'register':
             confirm_password = request.form.get('confirm_password')
             if not username or not password or not confirm_password:
-                flash('All fields are required.', 'danger')
+                flash('All fields are required for registration.', 'danger')
             elif not validate_username(username):
                 flash('Username must be between 3 and 20 characters.', 'danger')
             elif not validate_password(password):
-                flash('Password must be at least 8 characters long, contain a number and an uppercase letter.', 'danger')
+                flash('Password must be at least 8 characters long, contain a number, and an uppercase letter.', 'danger')
             elif username in users:
-                flash('Username already exists.', 'danger')
+                flash('This username is already taken. Please choose another.', 'danger')
             elif password != confirm_password:
-                flash('Passwords do not match.', 'danger')
+                flash('Passwords do not match. Please re-enter them.', 'danger')
             else:
                 users[username] = generate_password_hash(password)
-                flash('Registration successful! Please log in.', 'success')
+                flash('Registration successful! You can now log in.', 'success')
                 return redirect(url_for('auth'))
 
     return render_template('auth.html')
