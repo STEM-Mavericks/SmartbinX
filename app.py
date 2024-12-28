@@ -17,6 +17,7 @@ def validate_username(username):
 def validate_password(password):
     return len(password) >= 8 and re.search(r"\d", password) and re.search(r"[A-Z]", password)
 
+# Routes
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -24,8 +25,8 @@ def home():
 @app.route('/dashboard')
 def dashboard():
     if 'username' not in session:
-        flash('Please Log In First!', 'warning')
-        return redirect(url_for('login'))
+        flash('Please log in first!', 'warning')
+        return redirect(url_for('auth'))
     return render_template('dashboard.html', username=session['username'])
 
 @app.route('/auth', methods=['GET', 'POST'])
@@ -37,35 +38,29 @@ def auth():
 
         if action == 'login':
             if not username or not password:
-                flash('Username and Password are required', 'danger')
-                return redirect(url_for('login'))
-
-            if username in users and check_password_hash(users[username], password):
+                flash('Username and Password are required.', 'danger')
+            elif username in users and check_password_hash(users[username], password):
                 session['username'] = username
-                flash('Login Successful!', 'success')
+                flash('Login successful!', 'success')
                 return redirect(url_for('dashboard'))
             else:
-                flash('Invalid Username or Password', 'danger')
-
+                flash('Invalid username or password.', 'danger')
         elif action == 'register':
             confirm_password = request.form.get('confirm_password')
-
             if not username or not password or not confirm_password:
-                flash('All fields are required', 'danger')
-                return redirect(url_for('login'))
-
-            if not validate_username(username):
-                flash('Username must be between 3 and 20 characters', 'danger')
+                flash('All fields are required.', 'danger')
+            elif not validate_username(username):
+                flash('Username must be between 3 and 20 characters.', 'danger')
             elif not validate_password(password):
-                flash('Password must be at least 8 characters long, contain a number and an uppercase letter', 'danger')
+                flash('Password must be at least 8 characters long, contain a number and an uppercase letter.', 'danger')
             elif username in users:
-                flash('Username already exists', 'danger')
+                flash('Username already exists.', 'danger')
             elif password != confirm_password:
-                flash('Passwords do not match', 'danger')
+                flash('Passwords do not match.', 'danger')
             else:
                 users[username] = generate_password_hash(password)
-                flash('Registration Successful! Please log in.', 'success')
-                return redirect(url_for('login'))
+                flash('Registration successful! Please log in.', 'success')
+                return redirect(url_for('auth'))
 
     return render_template('auth.html')
 
@@ -73,7 +68,7 @@ def auth():
 def logout():
     session.pop('username', None)
     flash('You have been logged out.', 'info')
-    return redirect(url_for('login'))
+    return redirect(url_for('auth'))
 
 if __name__ == '__main__':
     app.run(debug=True)
