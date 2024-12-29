@@ -6,6 +6,7 @@ import os
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
 
+# Load environment variables from .env file
 load_dotenv()
 
 app = Flask(__name__)
@@ -85,7 +86,6 @@ def auth():
 
     return render_template('auth.html')
 
-
 @app.route('/logout')
 @login_required
 def logout():
@@ -96,4 +96,5 @@ def logout():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-    app.run(debug=True)
+    env = os.getenv('FLASK_ENV', 'production')
+    app.run(debug=(env == 'development'))
