@@ -399,7 +399,7 @@ FodyWeavers.xsd
 
 # Autocommit.sh
 autocommit.sh
-
+locustfile.py
 # Environment Variables
 .env
 keygen.py
