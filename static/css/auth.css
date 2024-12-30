@@ -303,12 +303,12 @@ body{
     }
 
     .toggle-panel {
-        width: 50%;
+        width: 100%;
         height: 50px;
         position: absolute;
         bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0;
+        transform: translateX(0);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -318,8 +318,8 @@ body{
     }
 
     .container.active .toggle-panel {
-        left: 50%;
-        transform: translateX(-50%);
+        left: 0;
+        transform: translateX(0);
     }
 
     .form-container {
@@ -346,5 +346,25 @@ body{
 
     .input-group input {
         max-width: 100%;
+    }
+
+    .toggle-panel {
+        width: 100%;
+        height: 50px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: translateX(0);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #1e90ff;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .container.active .toggle-panel {
+        left: 0;
+        transform: translateX(0);
     }
 }
