@@ -278,3 +278,63 @@ body{
 .flash-message.info{
     background-color: #2196F3; 
 }
+
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        padding: 20px;
+        height: auto; /* Allow height to adjust dynamically */
+    }
+
+    .container {
+        width: 90%; /* Ensure container fits smaller screens */
+        min-height: auto; /* Allow height adjustment for smaller devices */
+    }
+
+    .form-container {
+        position: absolute;
+        top: 0;
+        width: 100%; /* Expand form to fit container width */
+        height: auto; /* Allow height to adjust dynamically */
+    }
+
+    .container.active .sign-in,
+    .container.active .sign-up {
+        transform: translateY(100%); /* Transition form appears from top */
+    }
+
+    .sign-in,
+    .sign-up {
+        width: 100%; /* Forms take full width */
+        height: auto; /* Allow dynamic height adjustment */
+    }
+
+    .toggle-container {
+        left: 0;
+        height: auto;
+        width: 100%; /* Expand toggle width */
+        border-radius: 0; /* Remove border-radius for uniformity */
+    }
+
+    .toggle {
+        width: 100%; /* Stretch toggle to fill container */
+    }
+
+    .toggle-panel {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .social-icons a {
+        width: 30px; /* Reduce social icon size */
+        height: 30px;
+    }
+
+    .input-group input {
+        max-width: 100%; /* Ensure inputs adjust to screen size */
+        padding: 12px;
+    }
+
+    button {
+        padding: 8px 30px; /* Adjust button size for smaller devices */
+    }
+}
