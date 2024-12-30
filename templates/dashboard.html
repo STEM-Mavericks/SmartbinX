@@ -77,5 +77,56 @@
     <footer>
         <p>&copy; 2024 STEM Mavericks. All Rights Reserved.</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const ctx = document.getElementById('wasteChart').getContext('2d');
+    const wasteChart = new Chart(ctx, {
+        type: 'line', // Change to 'bar', 'pie', etc., as needed
+        data: {
+            labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            datasets: [
+                {
+                    label: 'Dry Waste (kg)',
+                    data: [2, 3, 4, 5, 3, 2, 1],
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1,
+                    fill: false
+                },
+                {
+                    label: 'Wet Waste (kg)',
+                    data: [1, 2, 2, 3, 4, 3, 2],
+                    borderColor: 'rgb(255, 99, 132)',
+                    tension: 0.1,
+                    fill: false
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top',
+                }
+            },
+            scales: {
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Days of the Week',
+                    }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Weight (kg)',
+                    },
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
 </body>
 </html>
