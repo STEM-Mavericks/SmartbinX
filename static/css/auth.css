@@ -279,6 +279,7 @@ body{
     background-color: #2196F3; 
 }
 
+/* Responsive Styles */
 @media (max-width: 768px) {
     .container {
         width: 90%;
@@ -286,7 +287,39 @@ body{
     }
 
     .toggle-container {
-        display: none;
+        width: 100%;
+        left: 0;
+        border-radius: 0;
+    }
+
+    .toggle {
+        width: 100%;
+        left: 0;
+        transform: translateX(0);
+    }
+
+    .container.active .toggle {
+        transform: translateX(0);
+    }
+
+    .toggle-panel {
+        width: 50%;
+        height: 50px;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #1e90ff;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .container.active .toggle-panel {
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .form-container {
@@ -302,10 +335,6 @@ body{
 
     .container.active .sign-in, .container.active .sign-up {
         transform: translateX(0);
-    }
-
-    .toggle-panel {
-        display: none;
     }
 }
 
