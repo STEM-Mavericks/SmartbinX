@@ -1,19 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="{{ url_for('static', filename='images/Final.png') }}" type="image/png">
+    <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>SmartbinX Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
 </head>
+
 <body>
     <header>
         <h1>SmartbinX Dashboard</h1>
         <nav>
             <ul>
-                <li><a href="#overview">O</a></li>
+                <li><a href="#overview"><i class="bx bx-stats"></i> Overview</a></li>
+                <li><a href="#stats"><i class='bx bxs-bar-chart-alt-2'></i> Statistics</a></li>
+                <li><a href="#reports"><i class="bx bxs-report"></i> Reports</a></li>
+                <li><a href="/logout"><i class="bx bx-log-out"></i> Logout</a></li>
             </ul>
         </nav>
     </header>
+
+    <section class="hero">
+        <h2>Welcome to SmartbinX</h2>
+        <p>Real-time waste monitoring and analytics at your fingertips.</p>
+        <a href="#stats" class="btn">View Your Charts</a>
+    </section>
+
+    <main>
+        <section id="overview" class="overview">
+            <h2>Overview</h2>
+            <div class="overview-stats">
+                <div class="stat">
+                    <h3>Dry Waste Weight</h3>
+                    <p><span id="dry-weight">0</span> kg</p>
+                </div>
+                <div class="stat">
+                    <h3>Wet Waste Weight</h3>
+                    <p><span id="wet-weight">0</span> kg</p>
+                </div>
+                <div class="stat">
+                    <h3>Total Waste Weight</h3>
+                    <p><span id="total-waste">0</span> kg</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="stats" class="stats">
+            <h2>Waste Production Statistics</h2>
+            <div class="chart">
+                <h3>Waste Production Trends</h3>
+                <canvas id="wasteChart"></canvas>
+            </div>
+        </section>
+
+        <section id="reports" class="reports">
+            <h2>Waste Production Reports</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Dry Waste (kg)</th>
+                        <th>Wet Waste (kg)</th>
+                        <th>Total Waste (kg)</th>
+                    </tr>
+                </thead>
+                <tbody id="report-data">
+                    <!-- Dynamic content here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 STEM Mavericks. All Rights Reserved.</p>
+    </footer>
 </body>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+
 </html>

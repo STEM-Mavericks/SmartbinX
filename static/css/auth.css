@@ -274,3 +274,7 @@ body{
 .flash-message.danger {
     background-color: #f44336;
 }
+
+.flash-message.info{
+    background-color: #2196F3; 
+}
