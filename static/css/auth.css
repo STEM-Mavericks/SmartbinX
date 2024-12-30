@@ -278,3 +278,44 @@ body{
 .flash-message.info{
     background-color: #2196F3; 
 }
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        min-height: 400px;
+    }
+
+    .toggle-container {
+        display: none;
+    }
+
+    .form-container {
+        width: 100%;
+        position: relative;
+        transform: translateX(0);
+    }
+
+    .sign-in, .sign-up {
+        width: 100%;
+        left: 0;
+    }
+
+    .container.active .sign-in, .container.active .sign-up {
+        transform: translateX(0);
+    }
+
+    .toggle-panel {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+        min-height: 350px;
+    }
+
+    .input-group input {
+        max-width: 100%;
+    }
+}
