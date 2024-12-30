@@ -282,13 +282,14 @@ body{
 @media (max-width: 768px) {
     body {
         flex-direction: column;
-        padding: 20px;
+        padding: 10px;
         height: auto; /* Allow height to adjust dynamically */
     }
 
     .container {
-        width: 90%;
-        min-height: auto; /* Dynamic height for smaller screens */
+        width: 90%; /* Adjust container width for smaller screens */
+        min-height: auto; /* Allow dynamic height for varying content */
+        overflow: hidden; /* Prevent overflow issues */
     }
 
     .form-container {
@@ -305,17 +306,17 @@ body{
     }
 
     .container.active .sign-in {
-        transform: translateY(-100%); /* Slide out from top */
+        transform: translateY(-100%); /* Slide the form out vertically */
     }
 
     .sign-up {
-        transform: translateY(100%); /* Position off-screen initially */
+        transform: translateY(100%); /* Position the sign-up form off-screen */
         opacity: 0;
         z-index: 1;
     }
 
     .container.active .sign-up {
-        transform: translateY(0); /* Slide in from top */
+        transform: translateY(0); /* Bring the sign-up form into view */
         opacity: 1;
         z-index: 5;
         animation: move-y 0.6s;
@@ -335,16 +336,16 @@ body{
     .toggle-container {
         position: absolute;
         left: 0;
-        top: 50%;
-        width: 100%;
+        top: 0; /* Correct placement for vertical toggle */
+        width: 100%; /* Full-width toggle for smaller screens */
         height: 50%;
-        border-radius: 0; /* Flat borders for responsive design */
         overflow: hidden;
         transition: all 0.6s ease-in-out;
+        border-radius: 0; /* Simplified borders for responsiveness */
     }
 
     .container.active .toggle-container {
-        transform: translateY(-100%);
+        transform: translateY(-100%); /* Slide up when active */
     }
 
     .toggle {
@@ -358,17 +359,29 @@ body{
         transform: translateY(50%);
     }
 
+    .input-group input {
+        width: 100%; /* Ensure inputs are full-width */
+        padding: 12px; /* Sufficient padding for better usability */
+    }
+
+    .input-group {
+        flex-direction: column; /* Stack input fields vertically */
+        align-items: stretch; /* Ensure full-width alignment */
+    }
+
     .social-icons a {
         width: 30px;
         height: 30px;
     }
 
-    .input-group input {
-        width: 100%;
-        padding: 12px;
+    button {
+        padding: 10px 20px; /* Adjust button size for smaller screens */
+        font-size: 12px; /* Ensure text is readable */
     }
 
-    button {
-        padding: 8px 30px; /* Adjust button size for smaller devices */
+    /* Adjust flash messages */
+    .flash-message {
+        font-size: 12px;
+        margin: 10px 5px;
     }
 }
