@@ -175,7 +175,9 @@ nav ul li i{
 }
 
 
-.report-data tr t
+.report-data tr th {
+    color: grey;
+}
 /* Footer */
 footer {
     background-color: #333;
