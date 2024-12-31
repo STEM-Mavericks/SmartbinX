@@ -30,7 +30,6 @@
     </section>
 
     <main>
-        <!-- Overview Section -->
         <section id="overview" class="overview">
             <h2>Overview</h2>
             <div class="overview-stats">
@@ -49,7 +48,6 @@
             </div>
         </section>
 
-        <!-- Statistics Section -->
         <section id="stats" class="stats">
             <h2>Waste Production Statistics</h2>
             <div class="chart">
@@ -60,14 +58,6 @@
 
         <section id="reports" class="reports">
             <h2>Waste Production Reports</h2>
-            
-            <label for="dateView">Choose View: </label>
-            <select id="dateView">
-                <option value="daily">Daily</option>
-                <option value="weekly">Weekly</option>
-                <option value="monthly">Monthly</option>
-            </select>
-
             <table>
                 <thead>
                     <tr>
@@ -81,17 +71,7 @@
                     </tr>
                 </thead>
                 <tbody id="report-data">
-                    {% for record in waste_records %}
-                    <tr>
-                        <td>{{ record.date.strftime('%B %d, %Y') }}</td>
-                        <td>{{ record.dry_weight }}</td>
-                        <td>{{ record.wet_weight }}</td>
-                        <td>{{ record.total_weight }}</td>
-                        <td>{{ record.daily }}</td>
-                        <td>{{ record.weekly }}</td>
-                        <td>{{ record.monthly }}</td>
-                    </tr>
-                    {% endfor %}
+                    <!-- Dynamic content here -->
                 </tbody>
             </table>
         </section>
@@ -100,79 +80,56 @@
     <footer>
         <p>&copy; 2024 STEM Mavericks. All Rights Reserved.</p>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-        const ctx = document.getElementById('wasteChart').getContext('2d');
-        const wasteChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-                datasets: [
-                    {
-                        label: 'Dry Waste (kg)',
-                        data: [2, 3, 4, 5, 3, 2, 1],
-                        borderColor: 'rgb(75, 192, 192)',
-                        tension: 0.1,
-                        fill: false
-                    },
-                    {
-                        label: 'Wet Waste (kg)',
-                        data: [1, 2, 2, 3, 4, 3, 2],
-                        borderColor: 'rgb(255, 99, 132)',
-                        tension: 0.1,
-                        fill: false
-                    }
-                ]
+<script>
+    const ctx = document.getElementById('wasteChart').getContext('2d');
+    const wasteChart = new Chart(ctx, {
+        type: 'line', // Change to 'bar', 'pie', 'doughnut'
+        data: {
+            labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            datasets: [
+                {
+                    label: 'Dry Waste (kg)',
+                    data: [2, 3, 4, 5, 3, 2, 1],
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1,
+                    fill: false
+                },
+                {
+                    label: 'Wet Waste (kg)',
+                    data: [1, 2, 2, 3, 4, 3, 2],
+                    borderColor: 'rgb(255, 99, 132)',
+                    tension: 0.1,
+                    fill: false
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: 'top',
+                }
             },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
+            scales: {
+                x: {
+                    title: {
                         display: true,
-                        position: 'top',
+                        text: 'Days of the Week',
                     }
                 },
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Days of the Week',
-                        }
+                y: {
+                    title: {
+                        display: true,
+                        text: 'Weight (kg)',
                     },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'Weight (kg)',
-                        },
-                        beginAtZero: true
-                    }
+                    beginAtZero: true
                 }
             }
-        });
-
-        document.getElementById('dateView').addEventListener('change', function() {
-            const selectedView = this.value;
-            const reportDataRows = document.querySelectorAll('#report-data tr');
-            
-            reportDataRows.forEach(row => {
-                const dateCell = row.cells[0];
-                const dateValue = new Date(dateCell.textContent);
-
-                if (selectedView === 'daily') {
-                    dateCell.textContent = dateValue.toLocaleDateString();
-                } else if (selectedView === 'weekly') {
-                    const startDate = new Date(dateValue);
-                    const endDate = new Date(dateValue);
-                    endDate.setDate(startDate.getDate() + 6); 
-                    const dateRange = `${startDate.getDate()}/${startDate.getMonth() + 1}/${startDate.getFullYear()} - ${endDate.getDate()}/${endDate.getMonth() + 1}/${endDate.getFullYear()}`;
-                    dateCell.textContent = dateRange;
-                } else if (selectedView === 'monthly') {
-                    dateCell.textContent = dateValue.toLocaleString('default', { month: 'long', year: 'numeric' });
-                }
-            });
-        });
-    </script>
+        }
+    });
+</script>
 
 </body>
 </html>
