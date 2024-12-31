@@ -45,7 +45,7 @@ def home():
 @app.route('/dashboard')
 @login_required
 def dashboard():
-    return render_template('dashboard.html', name=current_name.name, username=current_user.username)
+    return render_template('dashboard.html', username=current_user.username)
 
 @app.route('/auth', methods=['GET', 'POST'])
 def auth():
