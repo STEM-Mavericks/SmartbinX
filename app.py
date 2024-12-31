@@ -54,7 +54,7 @@ def auth():
         username = request.form.get('username')
         password = request.form.get('password')
 
-        if action == 'login':  # Handle Login
+        if action == 'login':
             if not username or not password:
                 flash('Username and Password are required.', 'danger')
                 return redirect(url_for('auth'))
