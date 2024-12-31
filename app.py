@@ -27,6 +27,20 @@ class User(UserMixin, db.Model):
     def __repr__(self):
         return f"<User {self.username}>"
 
+class WasteRecord(db.Model):
+    __tablename__ = 'waste_records'
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.Date, nullable=False)
+    dry_weight = db.Column(db.Float, nullable=False, default=0.0)  # In kg
+    wet_weight = db.Column(db.Float, nullable=False, default=0.0)  # In kg
+    total_weight = db.Column(db.Float, nullable=False, default=0.0)  # Dry + Wet
+
+    def __init__(self, date, dry_weight, wet_weight):
+        self.date = date
+        self.dry_weight = dry_weight
+        self.wet_weight = wet_weight
+        self.total_weight = dry_weight + wet_weight
+
 @login_manager.user_loader
 def load_user(user_id):
     return db.session.get(User, int(user_id))
@@ -37,7 +51,6 @@ def validate_username(username):
 def validate_password(password):
     return len(password) >= 8 and re.search(r"\d", password) and re.search(r"[A-Z]", password)
 
-# Routes
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -94,7 +107,6 @@ def logout():
     flash('You have been logged out.', 'info')
     return redirect(url_for('auth'))
 
-# App Initialization
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
