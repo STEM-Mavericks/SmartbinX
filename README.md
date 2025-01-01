@@ -1,4 +1,0 @@
-
-SECRET_KEY=9c1d9fb646f8281619fd72f7f5ddf945c76ca2b8e307d5d8
-DB_HOST=postgresql://smartbinx_user:qfNcrrtlKVJ3TrDBJmSeGEKAxAzClLt3@dpg-ctntf6dsvqrc73b41vbg-a.oregon-postgres.render.com/smartbinx
-FLASK_ENV=development
