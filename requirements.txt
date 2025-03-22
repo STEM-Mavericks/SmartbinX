@@ -1,5 +1,5 @@
 Flask==2.3.2
-gunicorn==22.0.0
+gunicorn==23.0.0
 Flask-SQLAlchemy==3.0.2
 Flask-Login==0.6.2
 python-dotenv==1.0.0
